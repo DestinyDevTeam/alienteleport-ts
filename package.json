@@ -1,8 +1,7 @@
 {
   "scripts": {
-    "bar": "npx tsc & node index.js",
-    "build": "npx tsc",
-    "start": "node index.js"
+    "start": "node ./dist/index.js",
+    "postinstall": "tsc"
   },
   "dependencies": {
     "@types/node": "^18.11.17",
