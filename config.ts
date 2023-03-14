@@ -1,16 +1,18 @@
 import ConfigModel from "./models/configModel";
 
  
-const dbConnection:string='default';
+const dbConnection:string = 'default';
+const PRECISION: number = +process.env.TKN_PRCS;
+
 export default new ConfigModel({ 
-    EVMSSocketUrl:'wss://testnet.telos.caleos.io/evm',
-    EVMUrl:'https://testnet.telos.caleos.io/evm',
-    hyperionUrl:'https://testnet.telos.caleos.io',
-    oracleAccount:'{{oracle account}}',
-    oraclePrivateKey:'5KJ....',
-    precision:4,
-    symbol:'DON',
-    contract:'testnettoken',
-    EVMContract:'0xDbb168a87B6c6c88b8F0F3172c8Cb929CFd53265',
-    EVMContractPrivateKey:'1386e....'
+    EVMSSocketUrl:'wss://mainnet.telos.caleos.io/evm',
+    EVMUrl:'https://mainnet.telos.caleos.io/evm',
+    hyperionUrl:'https://mainnet.telos.caleos.io',
+    oracleAccount: process.env.NTV_ACCNT,
+    oraclePrivateKey: process.env.NTV_PK,
+    precision: PRECISION,
+    symbol: process.env.TKN_SYMB,
+    contract: process.env.TKN_CNTRCT,
+    EVMContract: process.env.EVM_CA,
+    EVMContractPrivateKey: process.env.EVM_PK
 });
