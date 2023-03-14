@@ -1,8 +1,8 @@
 {
   "scripts": {
-  "build": "tsc",
-  "start": "node dist/index.js",
-  "postinstall": "npm run build"
+    "bar": "tsc & node ./dist/index.js",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "dependencies": {
     "@types/node": "^18.11.17",
