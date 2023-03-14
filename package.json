@@ -2,7 +2,7 @@
   "scripts": {
     "bar": "tsc & node ./dist/index.js",
     "build": "tsc && node ./dist/index.js",
-    "start": "tsc && nodemon ./dist/index.js",
+    "start": "tsc && node ./dist/index.js",
     "dev": "nodemon --exec ts-node index.ts"
   },
   "dependencies": {
