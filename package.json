@@ -3,7 +3,7 @@
   "types": "dist/index",
   "scripts": {
     "build": "npx tsc",
-    "start": "nodemon /src/index.ts",
+    "start": "nodemon /app/index.ts",
     "dev": "next dev"
   },
   "dependencies": {
