@@ -1,16 +1,16 @@
 //require('dotenv').config() 
 import { WebService } from 'tsoribase';
 import { ActionController, ApiController, ApiRequest, EosAction, EventModel, EvmRouter, HpTable, HyperionRouter, TableModel, TransactionModel } from 'tsorihyperion';
-import abi from './abi';
-import config from './config'; 
-import {Serialize} from 'eosjs'
-const ethUtil = require('ethereumjs-util');
-const express = require('express');
-import { keccak ,toRpcSig} from 'ethereumjs-util'
-import ClaimedModel from './models/claimedModel'; 
-import TeleportModel from './models/teleportModel';
-import TransportModel from './models/transportModel';
-import StorageService from './storageService';
+import abi from '../abi';
+import config from '../config'; 
+import { Serialize } from 'eosjs'
+import ethUtil from 'ethereumjs-util';
+import { express } from 'express';
+import { keccak, toRpcSig } from 'ethereumjs-util';
+import ClaimedModel from '../models/claimedModel'; 
+import TeleportModel from '../models/teleportModel';
+import TransportModel from '../models/transportModel';
+import StorageService from '../storageService';
 const fromHexString = hexString =>
 new Uint8Array(hexString.match(/.{1,2}/g).map(byte => parseInt(byte, 16)))
 
@@ -152,8 +152,8 @@ export default class AlienTeleportTs
         
         const data_serialized =  '0x' + toHexString(sb.array.slice(0, 69));
         console.log(data_serialized);
-         //const data_buf = Buffer.from(data_serialized);
-         const msg_hash = keccak(data_serialized)// ethUtil.keccak(data_buf);
+         const data_buf = Buffer.from(data_serialized);
+         const msg_hash = keccak(data_buf)// ethUtil.keccak(data_buf);
          const pk = Buffer.from(process.env.EVM_PK, "hex");
          const sig = ethUtil.ecsign(msg_hash, pk);
          const signature = toRpcSig (sig.v, sig.r, sig.s)// ethUtil.toRpcSig(sig.v, sig.r, sig.s); 
